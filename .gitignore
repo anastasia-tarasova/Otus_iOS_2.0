@@ -39,6 +39,4 @@ xcuserdata/
 #
 Pods/
 
-*xcworkspace/xcuserdata/*
-*xcworkspace/xcshareddata/*
-*xcodeproj/xcuserdata/*
+*xcuserdata/*
