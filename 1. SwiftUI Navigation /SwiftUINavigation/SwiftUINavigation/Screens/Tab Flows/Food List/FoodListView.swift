@@ -29,7 +29,7 @@ struct FoodListView: View {
             }
             .navigationBarTitle("Foods")
         } // NavigationView
-        .padding(.top)
+        .padding(.top, ScreenPaddingCalculator.shared.topPadding)
         // Force iPhone-like style as a workaround for broken splitView in iPad portrait mode.
         .navigationViewStyle(StackNavigationViewStyle())
         .onReceive( appRouter.$foodDetailsIdNavigationRequired.combineLatest(viewModel.$isLoading)) { foodId, isLoading in

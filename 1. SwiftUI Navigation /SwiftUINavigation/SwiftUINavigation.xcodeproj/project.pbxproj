@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5D3BE5002417A90F0033E983 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6817F224159253008EB3EB /* FoodListView.swift */; };
+		5D3BE5072417B00B0033E983 /* ScreenPaddingCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3BE5062417B00B0033E983 /* ScreenPaddingCalculator.swift */; };
+		5D3BE50A2417B0410033E983 /* DeviceKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5D3BE5092417B0410033E983 /* DeviceKit */; };
 		5D4E504824164C7B00947AD2 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E504724164C7B00947AD2 /* Food.swift */; };
 		5D4E504F24164D7F00947AD2 /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E504E24164D7F00947AD2 /* ActivityIndicatorView.swift */; };
 		5D4E505124164FAA00947AD2 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4E505024164FAA00947AD2 /* LazyView.swift */; };
@@ -43,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5D3BE5062417B00B0033E983 /* ScreenPaddingCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPaddingCalculator.swift; sourceTree = "<group>"; };
 		5D4E504724164C7B00947AD2 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		5D4E504E24164D7F00947AD2 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		5D4E505024164FAA00947AD2 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
@@ -77,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D3BE50A2417B0410033E983 /* DeviceKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +161,7 @@
 				5D6817C424156706008EB3EB /* AppDelegate.swift */,
 				5D6817C624156706008EB3EB /* SceneDelegate.swift */,
 				5D6817EC24159216008EB3EB /* AppRouter.swift */,
+				5D3BE5062417B00B0033E983 /* ScreenPaddingCalculator.swift */,
 				5D6817C824156706008EB3EB /* ContentView.swift */,
 				5D4E50582416A42100947AD2 /* Extensions */,
 				5D4E504624164C6300947AD2 /* Model */,
@@ -251,6 +256,9 @@
 			dependencies = (
 			);
 			name = SwiftUINavigation;
+			packageProductDependencies = (
+				5D3BE5092417B0410033E983 /* DeviceKit */,
+			);
 			productName = SwiftUINavigation;
 			productReference = 5D6817C124156706008EB3EB /* SwiftUINavigation.app */;
 			productType = "com.apple.product-type.application";
@@ -301,6 +309,9 @@
 				Base,
 			);
 			mainGroup = 5D6817B824156705008EB3EB;
+			packageReferences = (
+				5D3BE5082417B0410033E983 /* XCRemoteSwiftPackageReference "DeviceKit" */,
+			);
 			productRefGroup = 5D6817C224156706008EB3EB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +352,7 @@
 				5D6817C524156706008EB3EB /* AppDelegate.swift in Sources */,
 				5D4E50552416A34700947AD2 /* AboutModalView.swift in Sources */,
 				5D4E504824164C7B00947AD2 /* Food.swift in Sources */,
+				5D3BE5072417B00B0033E983 /* ScreenPaddingCalculator.swift in Sources */,
 				5D4E50532416A33E00947AD2 /* AboutView.swift in Sources */,
 				5D6817F524159263008EB3EB /* FoodListViewModel.swift in Sources */,
 				5D6817EF24159231008EB3EB /* TriggerButtonView.swift in Sources */,
@@ -619,6 +631,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5D3BE5082417B0410033E983 /* XCRemoteSwiftPackageReference "DeviceKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devicekit/DeviceKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D3BE5092417B0410033E983 /* DeviceKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5D3BE5082417B0410033E983 /* XCRemoteSwiftPackageReference "DeviceKit" */;
+			productName = DeviceKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5D6817B924156705008EB3EB /* Project object */;
 }
