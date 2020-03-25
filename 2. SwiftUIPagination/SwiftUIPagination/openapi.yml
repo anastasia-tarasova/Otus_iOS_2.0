@@ -1,0 +1,139 @@
+openapi: 3.0.1
+info:
+  title: RickAndMortyAPI
+  description: rickandmortyapi.com
+  version: 1.0.0
+servers:
+- url: https://rickandmortyapi.com/api/
+tags:
+  - name: RickAndMorty
+    description: RickAndMorty api
+paths:
+  /character/:
+    get:
+      tags:
+        - character
+      summary: Character list
+      operationId: charactersGet
+      parameters:
+      - name: page
+        in: query
+        description: The page number of objects to return. Defaults to 0.
+        required: false
+        schema:
+          type: integer
+      - name: name
+        in: query
+        description: Chracter name.
+        required: false
+        schema:
+          type: string
+      - name: status
+        in: query
+        description: Character status.
+        required: false
+        schema:
+          $ref: '#/components/schemas/LivingStatus'
+      - name: gender
+        in: query
+        description: Character gender.
+        required: false
+        schema:
+          $ref: '#/components/schemas/Gender'
+      responses:
+        200:
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CharacterList'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorModel'
+components:
+  schemas:
+    ErrorModel:
+      type: object
+      required:
+      - message
+      - code
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+          minimum: 100
+          maximum: 600
+    CharacterList:
+      type: object
+      required:  # List the required properties here
+        - results
+        - info
+      properties:
+        info:
+          $ref: '#/components/schemas/Info'
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CharacterModel'
+    Info:
+      type: object
+      properties:
+        count:
+          type: integer
+        pages:
+          type: integer
+        next:
+          type: string
+        prev:
+          type: string
+    CharacterModel:
+      type: object
+      required:  # List the required properties here
+        - id
+        - name
+        - status
+        - gender
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        status:
+          type: string
+        species:
+          type: string
+        type:
+          type: string
+        gender:
+          type: string
+        origin:
+          $ref: '#/components/schemas/Place'
+        location:
+          $ref: '#/components/schemas/Place'
+        image:
+          type: string
+        episode:
+          type: array
+          items:
+            type: string
+        url:
+          type: string
+        created:
+          type: string
+    LivingStatus:
+      type: string
+      enum: ["dead", "alive", "unknown"]
+    Gender:
+      type: string
+      enum: ["female", "male", "genderless", "unknown"]
+    Place:
+      type: object
+      properties:
+        name:
+          type: string
+        url:
+          type: string
