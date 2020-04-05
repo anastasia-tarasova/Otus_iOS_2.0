@@ -22,13 +22,11 @@ extension CharacterAPI {
             CharacterAPI.charactersGet(page: page, name: name, status: status, gender: gender, apiResponseQueue: apiResponseQueue) { (characterList, error) in
                 if let list = characterList {
                     seal(.success(list))
-                } else if let error = error {
-                    seal(.failure(error))
                 } else {
-                    seal(.failure(AppError.unexpected("Neither data nor error were returned")))
+                    let unwrappedError = error ?? AppError.unexpected("Neither data nor error were returned")
+                    seal(.failure(unwrappedError))
                 }
             }
         }
-        
     }
 }

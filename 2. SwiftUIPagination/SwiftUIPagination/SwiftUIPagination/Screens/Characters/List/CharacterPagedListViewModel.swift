@@ -64,7 +64,6 @@ class CharacterPagedListViewModel: ObservableObject
                     switch completion {
                     case .failure(let error):
                         print(error)
-                        break
                     case .finished:
                         break
                     }
